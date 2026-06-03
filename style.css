@@ -515,9 +515,9 @@ h1.hero-title {
 }
 
 /* ─────────────────────────────────────────
-   MARQUEE
+   STACK
 ───────────────────────────────────────── */
-.marquee-wrap {
+.stack-wrap {
   overflow: hidden;
   padding: 1.1rem 0;
   border-top: 1px solid var(--border);
@@ -525,14 +525,14 @@ h1.hero-title {
   background: rgba(179, 135, 255, 0.04);
 }
 
-.marquee-track {
+.stack-track {
   display: flex;
   gap: 2.5rem;
   white-space: nowrap;
-  animation: marquee 22s linear infinite;
+  animation: stack 22s linear infinite;
 }
 
-.marquee-item {
+.stack-item {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.15em;
@@ -543,7 +543,7 @@ h1.hero-title {
   gap: 2.5rem;
 }
 
-.marquee-dot {
+.stack-dot {
   width: 5px;
   height: 5px;
   border-radius: 50%;
@@ -552,7 +552,7 @@ h1.hero-title {
   flex-shrink: 0;
 }
 
-@keyframes marquee {
+@keyframes stack {
   from {
     transform: translateX(0);
   }
@@ -711,6 +711,7 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
   transition: transform 0.5s var(--ease);
 }
 .project-card:hover .project-thumb img {
@@ -875,84 +876,6 @@ section {
 }
 
 /* ─────────────────────────────────────────
-   STACK
-───────────────────────────────────────── */
-.stack-section {
-  background: var(--mid);
-}
-
-.stack-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-  overflow: hidden;
-}
-
-.stack-item {
-  background: var(--mid);
-  padding: 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  transition: background 0.2s;
-}
-.stack-item:hover {
-  background: var(--surface);
-}
-
-.stack-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-}
-.stack-icon.iy {
-  background: rgba(252, 245, 106, 0.1);
-}
-.stack-icon.ip {
-  background: rgba(179, 135, 255, 0.1);
-}
-
-.stack-name {
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--white);
-}
-
-.stack-level {
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  color: var(--muted);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.stack-bar {
-  height: 2px;
-  background: rgba(179, 135, 255, 0.15);
-  margin-top: 0.5rem;
-  border-radius: 1px;
-  overflow: hidden;
-}
-
-.stack-bar-fill {
-  height: 100%;
-  background: var(--yellow);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 1s var(--ease);
-}
-.stack-bar-fill.p {
-  background: var(--purple);
-}
-
-/* ─────────────────────────────────────────
    CONTACT
 ───────────────────────────────────────── */
 .contact-section {
@@ -1108,133 +1031,6 @@ footer p {
   .section-title {
     font-size: clamp(2.5rem, 11vw, 4.5rem);
   }
-
-  .stack-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ═══════════════════════════════════════════
-   NOUVELLES FONCTIONNALITÉS
-   ═══════════════════════════════════════════ */
-
-/* ── DARK / LIGHT MODE ── */
-[data-theme="light"] {
-  /* Fonds : noir devient blanc chaud */
-  --dark: #fffdf0;
-  --mid: #fff9d6;
-  --surface: #fff4b0;
-  --border: rgba(180, 130, 0, 0.2);
-
-  /* Texte : blanc devient noir profond */
-  --white: #1a1025;
-  --muted: rgba(26, 16, 37, 0.55);
-  --dim: rgba(26, 16, 37, 0.25);
-
-  /* Couleurs inversées : jaune ↔ violet */
-  --yellow: #b387ff;
-  --purple: #c9a800;
-}
-[data-theme="light"] body {
-  background: var(--dark);
-}
-[data-theme="light"] .blob-1 {
-  opacity: 0.1;
-}
-[data-theme="light"] .blob-2 {
-  opacity: 0.08;
-}
-[data-theme="light"] .marquee-wrap {
-  background: rgba(252, 245, 106, 0.15);
-}
-[data-theme="light"] .about-strip {
-  background: var(--mid);
-}
-[data-theme="light"] .stack-section {
-  background: var(--mid);
-}
-[data-theme="light"] .stack-item {
-  background: var(--mid);
-}
-[data-theme="light"] .stack-item:hover {
-  background: var(--surface);
-}
-[data-theme="light"] .project-card {
-  background: rgba(252, 245, 106, 0.08);
-}
-[data-theme="light"] .project-card:hover {
-  background: rgba(252, 245, 106, 0.16);
-}
-[data-theme="light"] #learning {
-  background: var(--mid);
-}
-[data-theme="light"] .learning-card {
-  background: rgba(252, 245, 106, 0.08);
-}
-[data-theme="light"] .hobby-card {
-  background: rgba(252, 245, 106, 0.05);
-}
-[data-theme="light"] .btn-primary {
-  background: #b387ff;
-  color: #fffdf0;
-}
-[data-theme="light"] .btn-outline {
-  border-color: #c9a800;
-  color: #c9a800;
-}
-[data-theme="light"] nav {
-  background: rgba(255, 253, 240, 0.85) !important;
-  border-bottom-color: rgba(180, 130, 0, 0.15);
-}
-[data-theme="light"] .nav-links a {
-  color: rgba(26, 16, 37, 0.55);
-}
-[data-theme="light"] .nav-links a:hover,
-[data-theme="light"] .nav-links a.active {
-  color: #b387ff;
-}
-[data-theme="light"] .stack-bar {
-  background: rgba(180, 130, 0, 0.12);
-}
-[data-theme="light"] .contact-section::before {
-  background: radial-gradient(
-    ellipse,
-    rgba(252, 245, 106, 0.15) 0%,
-    transparent 70%
-  );
-}
-
-/* Theme toggle button */
-.theme-toggle {
-  background: none;
-  border: 1.5px solid var(--border);
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 1rem;
-  line-height: 1;
-  padding: 0;
-  transition:
-    border-color 0.2s,
-    transform 0.3s;
-  flex-shrink: 0;
-}
-.theme-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  font-style: normal;
-  line-height: 1;
-}
-.theme-toggle:hover {
-  border-color: var(--yellow);
-  transform: rotate(20deg);
 }
 
 /* ── EASTER EGG : toast ── */
