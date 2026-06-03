@@ -1,3 +1,19 @@
+// Ajoute ceci au début de ton script.js
+window.addEventListener("load", () => {
+  // Lance toutes les initialisations après que la page soit chargée
+  setTimeout(() => {
+    initTypewriter();
+    initReveal();
+    initStackPills(); // Utilise la nouvelle fonction
+    initNavScroll();
+    initActiveNav();
+    initMarquee();
+    initMascot();
+    initEasterEgg();
+    initKonami();
+    initCounters();
+  }, 300); // Délai de 300ms pour laisser le temps au navigateur
+});
 /* ── Typewriter hero ── */
 (function initTypewriter() {
   const elGreeting = document.getElementById("twGreeting");
@@ -7,12 +23,11 @@
 
   // Rôles à taper en boucle
   const roles = [
-    "je suis graphiste.",
-    "je suis UX UI designer.",
-    "je suis dev fullstack.",
-    "je suis curieuse.",
-    "je suis créative.",
-    "je suis gourmande.",
+    "graphiste.",
+    "UX designer.",
+    "dev fullstack.",
+    "curieuse.",
+    "gourmande.",
   ];
 
   const SPEED_TYPE = 55; // ms par lettre en frappe
@@ -138,16 +153,8 @@
   window.addEventListener(
     "scroll",
     () => {
-      const isLight =
-        document.documentElement.getAttribute("data-theme") === "light";
       nav.style.background =
-        window.scrollY > 60
-          ? isLight
-            ? "rgba(255,253,240,0.97)"
-            : "rgba(26,16,37,0.95)"
-          : isLight
-            ? "rgba(255,253,240,0.85)"
-            : "rgba(26,16,37,0.6)";
+        window.scrollY > 60 ? "rgba(26,16,37,0.95)" : "rgba(26,16,37,0.6)";
     },
     { passive: true },
   );
@@ -279,49 +286,28 @@
   });
 })();
 
-/* ── Compteurs animés ── */
-(function initCounters() {
-  const counters = document.querySelectorAll(".counter-number");
-  if (!counters.length) return;
-
+/* Remplace la fonction initStackBars */
+(function initStackPills() {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const target = el.dataset.target;
-
-        // Cas spécial infini
-        if (target === "∞") {
-          let dots = 0;
-          const iv = setInterval(() => {
-            dots++;
-            el.textContent = dots < 4 ? "∞".repeat(dots) : "∞";
-            if (dots >= 4) clearInterval(iv);
-          }, 200);
-          observer.unobserve(el);
-          return;
+        if (entry.isIntersecting) {
+          const pills = entry.target.querySelectorAll(".pill");
+          pills.forEach((pill, index) => {
+            // Déclenche chaque pill avec un délai progressif
+            setTimeout(() => {
+              pill.style.opacity = "1";
+              pill.style.transform = "translateY(0)";
+            }, index * 100); // 100ms entre chaque pill
+          });
+          observer.unobserve(entry.target);
         }
-
-        const end = parseInt(target, 10);
-        const duration = 1200;
-        const step = Math.ceil(duration / end);
-        let current = 0;
-
-        const iv = setInterval(() => {
-          current++;
-          el.textContent = current;
-          if (current >= end) {
-            el.textContent = end;
-            clearInterval(iv);
-          }
-        }, step);
-
-        observer.unobserve(el);
       });
     },
-    { threshold: 0.5 },
+    { threshold: 0.5 }, // Attend que 50% de la section soit visible
   );
 
-  counters.forEach((el) => observer.observe(el));
+  document
+    .querySelectorAll(".stack-category")
+    .forEach((el) => observer.observe(el));
 })();
