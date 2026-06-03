@@ -183,9 +183,9 @@ window.addEventListener("load", () => {
   sections.forEach((s) => observer.observe(s));
 })();
 
-/* ── Marquee duplicate ── */
-(function initMarquee() {
-  const track = document.getElementById("marquee");
+/* ── Stack duplicate ── */
+(function initStack() {
+  const track = document.getElementById("stack");
   if (track) track.innerHTML += track.innerHTML;
 })();
 
