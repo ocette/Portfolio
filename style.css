@@ -8,7 +8,7 @@
   --mid: #231530;
   --surface: #2a1c3a;
   --border: rgba(179, 135, 255, 0.18);
-  --white: #f9f6ff;
+  --white: #f5f0ff;
   --muted: rgba(245, 240, 255, 0.5);
   --dim: rgba(245, 240, 255, 0.15);
   --font-display: "DM Sans", sans-serif;
@@ -352,6 +352,10 @@ h1.hero-title {
   line-height: 1.75;
   opacity: 0;
   transition: opacity 0.6s ease;
+}
+.hero-sub strong {
+  color: var(--yellow);
+  font-weight: 500;
 }
 
 /* Liens sociaux */
@@ -709,9 +713,6 @@ section {
   object-fit: cover;
   transition: transform 0.5s var(--ease);
 }
-.project-position-top img {
-  object-position: top;
-}
 .project-card:hover .project-thumb img {
   transform: scale(1.04);
 }
@@ -848,6 +849,29 @@ section {
 }
 .project-github:hover {
   color: var(--purple);
+}
+
+.project-arrow {
+  margin-left: auto;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background 0.2s;
+}
+.project-card:hover .project-arrow {
+  border-color: var(--yellow);
+  color: var(--yellow);
+  background: rgba(252, 245, 106, 0.07);
 }
 
 /* ─────────────────────────────────────────
@@ -1088,6 +1112,129 @@ footer p {
   .stack-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* ═══════════════════════════════════════════
+   NOUVELLES FONCTIONNALITÉS
+   ═══════════════════════════════════════════ */
+
+/* ── DARK / LIGHT MODE ── */
+[data-theme="light"] {
+  /* Fonds : noir devient blanc chaud */
+  --dark: #fffdf0;
+  --mid: #fff9d6;
+  --surface: #fff4b0;
+  --border: rgba(180, 130, 0, 0.2);
+
+  /* Texte : blanc devient noir profond */
+  --white: #1a1025;
+  --muted: rgba(26, 16, 37, 0.55);
+  --dim: rgba(26, 16, 37, 0.25);
+
+  /* Couleurs inversées : jaune ↔ violet */
+  --yellow: #b387ff;
+  --purple: #c9a800;
+}
+[data-theme="light"] body {
+  background: var(--dark);
+}
+[data-theme="light"] .blob-1 {
+  opacity: 0.1;
+}
+[data-theme="light"] .blob-2 {
+  opacity: 0.08;
+}
+[data-theme="light"] .marquee-wrap {
+  background: rgba(252, 245, 106, 0.15);
+}
+[data-theme="light"] .about-strip {
+  background: var(--mid);
+}
+[data-theme="light"] .stack-section {
+  background: var(--mid);
+}
+[data-theme="light"] .stack-item {
+  background: var(--mid);
+}
+[data-theme="light"] .stack-item:hover {
+  background: var(--surface);
+}
+[data-theme="light"] .project-card {
+  background: rgba(252, 245, 106, 0.08);
+}
+[data-theme="light"] .project-card:hover {
+  background: rgba(252, 245, 106, 0.16);
+}
+[data-theme="light"] #learning {
+  background: var(--mid);
+}
+[data-theme="light"] .learning-card {
+  background: rgba(252, 245, 106, 0.08);
+}
+[data-theme="light"] .hobby-card {
+  background: rgba(252, 245, 106, 0.05);
+}
+[data-theme="light"] .btn-primary {
+  background: #b387ff;
+  color: #fffdf0;
+}
+[data-theme="light"] .btn-outline {
+  border-color: #c9a800;
+  color: #c9a800;
+}
+[data-theme="light"] nav {
+  background: rgba(255, 253, 240, 0.85) !important;
+  border-bottom-color: rgba(180, 130, 0, 0.15);
+}
+[data-theme="light"] .nav-links a {
+  color: rgba(26, 16, 37, 0.55);
+}
+[data-theme="light"] .nav-links a:hover,
+[data-theme="light"] .nav-links a.active {
+  color: #b387ff;
+}
+[data-theme="light"] .stack-bar {
+  background: rgba(180, 130, 0, 0.12);
+}
+[data-theme="light"] .contact-section::before {
+  background: radial-gradient(
+    ellipse,
+    rgba(252, 245, 106, 0.15) 0%,
+    transparent 70%
+  );
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0;
+  transition:
+    border-color 0.2s,
+    transform 0.3s;
+  flex-shrink: 0;
+}
+.theme-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-style: normal;
+  line-height: 1;
+}
+.theme-toggle:hover {
+  border-color: var(--yellow);
+  transform: rotate(20deg);
 }
 
 /* ── EASTER EGG : toast ── */
@@ -1428,19 +1575,14 @@ footer p {
   transform: scaleX(1);
 }
 
-/* Style pour les icônes des hobbies (emojis) */
 .hobby-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-  width: 60px;
+  width: 52px;
+  height: 52px;
   margin-bottom: 1rem;
 }
-
-.hobby-emoji {
-  font-size: 3rem;
-  line-height: 1;
+.hobby-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .hobby-name {
@@ -1451,7 +1593,6 @@ footer p {
   line-height: 1.2;
   margin-bottom: 0.5rem;
 }
-
 .hobby-desc {
   font-size: 0.78rem;
   color: var(--muted);
