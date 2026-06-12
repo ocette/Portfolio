@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Océane Thauvin — Dev Fullstack Junior</title>
+    <link
+      rel="shortcut icon"
+      href="assets/img_projets/LEMON_MASCOTTE_v1.svg"
+      type="image/x-icon"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,7 +20,7 @@
   <body>
     <!-- ── EASTER EGG : toast konami ── -->
     <div class="easter-toast" id="easterToast">
-      🍋 T'as trouvé le citron caché — tu vas cartonner en alternance !
+      T'as trouvé le citron caché — tu as de bons yeux ! 👀
     </div>
 
     <!-- ── NAV ── -->
@@ -26,13 +31,44 @@
         ><span class="logo-bracket">&gt;</span></span
       >
       <ul class="nav-links">
-        <li><a href="#about">À propos</a></li>
         <li><a href="#projets">Mes Projets</a></li>
-        <li><a href="#stack">Ma Stack</a></li>
         <li><a href="#learning">En cours</a></li>
+        <li><a href="#hobbies">Mon univers</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+
+      <!-- ✅ Bouton hamburger (visible uniquement mobile) -->
+      <button
+        class="nav-burger"
+        id="navBurger"
+        aria-label="Menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
+
+    <!-- ✅ Drawer mobile + overlay -->
+    <div class="nav-drawer" id="navDrawer">
+      <ul class="nav-drawer-links">
+        <li><a href="#projets">Mes Projets</a></li>
+        <li><a href="#learning">En cours</a></li>
+        <li><a href="#hobbies">Mon univers</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <a
+            href="assets/CV_Oceane _Thauvin.pdf"
+            target="_blank"
+            class="drawer-cv"
+          >
+            Télécharger mon CV ↓
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-overlay" id="navOverlay"></div>
 
     <!-- ── HERO ── -->
     <section class="hero">
@@ -114,7 +150,14 @@
           </div>
 
           <div class="hero-cta">
-            <a href="#projets" class="btn-primary">Voir mes projets →</a>
+            <a
+              href="assets/CV_Oceane _Thauvin.pdf"
+              target="_blank"
+              rel="noopener"
+              class="btn-primary"
+            >
+              Télécharger mon CV
+            </a>
             <a href="#contact" class="btn-outline">Me contacter</a>
           </div>
         </div>
@@ -1218,6 +1261,7 @@
           <div class="project-footer">
             <a
               href="https://grace-adaverse-hc491.vercel.app/"
+              target="_blank"
               class="project-demo"
               >Voir la démo ↗</a
             >
@@ -1237,7 +1281,7 @@
               alt="projet palette hunter"
             />
           </div>
-          <div class="project-number">01 — 2026 · Frontend</div>
+          <div class="project-number">02 — 2026 · Frontend</div>
           <div class="project-title">Palette Hunter</div>
           <p class="project-desc">
             Application React pour explorer et sauvegarder des palettes de
@@ -1520,6 +1564,14 @@
           class="btn-outline"
           >LinkedIn →</a
         >
+
+        <a
+          href="assets/CV_Oceane _Thauvin.pdf"
+          target="_blank"
+          rel="noopener"
+          class="btn-outline"
+          >CV →
+        </a>
       </div>
     </section>
 

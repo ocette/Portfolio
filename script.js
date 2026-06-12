@@ -1,19 +1,3 @@
-// Ajoute ceci au début de ton script.js
-window.addEventListener("load", () => {
-  // Lance toutes les initialisations après que la page soit chargée
-  setTimeout(() => {
-    initTypewriter();
-    initReveal();
-    initStackPills(); // Utilise la nouvelle fonction
-    initNavScroll();
-    initActiveNav();
-    initMarquee();
-    initMascot();
-    initEasterEgg();
-    initKonami();
-    initCounters();
-  }, 300); // Délai de 300ms pour laisser le temps au navigateur
-});
 /* ── Typewriter hero ── */
 (function initTypewriter() {
   const elGreeting = document.getElementById("twGreeting");
@@ -24,7 +8,7 @@ window.addEventListener("load", () => {
   // Rôles à taper en boucle
   const roles = [
     "graphiste.",
-    "UX designer.",
+    "ux ui designer.",
     "dev fullstack.",
     "curieuse.",
     "gourmande.",
@@ -286,28 +270,71 @@ window.addEventListener("load", () => {
   });
 })();
 
-/* Remplace la fonction initStackBars */
 (function initStackPills() {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const pills = entry.target.querySelectorAll(".pill");
-          pills.forEach((pill, index) => {
-            // Déclenche chaque pill avec un délai progressif
+          // ✅ Cible le conteneur du marquee
+          const items = entry.target.querySelectorAll(".stack-item");
+          items.forEach((item, index) => {
             setTimeout(() => {
-              pill.style.opacity = "1";
-              pill.style.transform = "translateY(0)";
-            }, index * 100); // 100ms entre chaque pill
+              item.style.opacity = "1";
+              item.style.transform = "translateY(0)";
+            }, index * 80);
           });
           observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.5 }, // Attend que 50% de la section soit visible
+    { threshold: 0.3 },
   );
 
-  document
-    .querySelectorAll(".stack-category")
-    .forEach((el) => observer.observe(el));
+  const wrap = document.getElementById("stackWrap");
+  if (wrap) observer.observe(wrap);
+})();
+
+/* ── Menu hamburger mobile ── */
+(function initMobileNav() {
+  const burger = document.getElementById("navBurger");
+  const drawer = document.getElementById("navDrawer");
+  const overlay = document.getElementById("navOverlay");
+
+  if (!burger || !drawer || !overlay) {
+    console.error("Un des éléments du menu mobile est introuvable.");
+    return;
+  }
+
+  function toggleMenu() {
+    const isOpen = drawer.classList.contains("open");
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  function openMenu() {
+    burger.classList.add("open");
+    drawer.classList.add("open");
+    overlay.classList.add("open");
+    burger.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    burger.classList.remove("open");
+    drawer.classList.remove("open");
+    overlay.classList.remove("open");
+    burger.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  burger.addEventListener("click", toggleMenu);
+  overlay.addEventListener("click", closeMenu);
+
+  // Fermer le menu si on clique sur un lien
+  drawer.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
 })();
