@@ -1360,3 +1360,114 @@ h1.hero-title {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 430px) and (min-width: 375px) {
+  /* --- NAV --- */
+  nav {
+    padding: 1rem 1.5rem; /* Réduit légèrement les padding pour plus d'espace */
+  }
+
+  /* --- HERO --- */
+  .hero-inner {
+    padding: 5rem 1.5rem 3rem; /* Réduit les padding verticaux et latéraux */
+    gap: 1.5rem; /* Réduit l'espace entre le contenu et le visuel */
+  }
+
+  .hero-content {
+    padding: 3rem 0 2rem; /* Réduit les padding verticaux */
+    text-align: center; /* Centre tout le contenu */
+  }
+
+  /* Titre principal */
+  h1.hero-title {
+    font-size: 2.2rem; /* Taille fixe optimisée pour iPhone */
+    align-items: center;
+  }
+
+  .hero-greeting {
+    font-size: 1.3rem;
+    font-weight: 300;
+  }
+
+  .hero-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-typewriter-line {
+    font-size: 1.3rem;
+    font-family: var(--font-mono);
+    justify-content: center;
+    margin-top: 0.2rem; /* Réduit l'espace entre le nom et la ligne de typewriter */
+  }
+
+  #twRole {
+    color: var(--yellow);
+  }
+
+  /* Curseur clignotant */
+  .hero-cursor {
+    height: 0.7em; /* Réduit légèrement la hauteur du curseur */
+  }
+
+  /* Sous-titre */
+  .hero-sub {
+    font-size: 0.9rem;
+    max-width: 100%;
+    margin: 1rem auto 0;
+    text-align: center;
+    line-height: 1.6; /* Améliore la lisibilité */
+  }
+
+  /* Eyebrow (texte en haut du titre) */
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    margin-bottom: 0.8rem;
+    justify-content: center;
+  }
+
+  /* Boutons CTA */
+  .hero-cta {
+    justify-content: center;
+    margin-top: 1.5rem;
+    gap: 0.8rem; /* Réduit l'espace entre les boutons */
+  }
+
+  .btn-primary,
+  .btn-outline {
+    padding: 0.7rem 1.5rem; /* Réduit légèrement la taille des boutons */
+    font-size: 0.8rem;
+  }
+
+  /* Liens sociaux */
+  .hero-socials {
+    justify-content: center;
+    margin-top: 1.2rem;
+    gap: 0.6rem; /* Réduit l'espace entre les icônes */
+  }
+
+  .social-link {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* Mascot (visuel à droite) */
+  .hero-visual {
+    display: none; /* Masque le visuel sur mobile */
+  }
+
+  /* Scroll hint */
+  .scroll-hint {
+    bottom: 1.5rem; /* Monte légèrement le hint pour éviter qu'il soit trop bas */
+  }
+
+  /* --- STACK --- */
+  .stack-wrap {
+    padding: 0.8rem 0; /* Réduit légèrement le padding vertical */
+  }
+
+  .stack-item {
+    font-size: 0.6rem; /* Réduit légèrement la taille des éléments du stack */
+  }
+}
