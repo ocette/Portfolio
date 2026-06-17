@@ -233,43 +233,6 @@
   });
 })();
 
-/* ── Konami code easter egg ── */
-(function initKonami() {
-  const code = [
-    "ArrowUp",
-    "ArrowUp",
-    "ArrowDown",
-    "ArrowDown",
-    "ArrowLeft",
-    "ArrowRight",
-    "ArrowLeft",
-    "ArrowRight",
-    "b",
-    "a",
-  ];
-  const toast = document.getElementById("easterToast");
-  let progress = 0;
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === code[progress]) {
-      progress++;
-      if (progress === code.length) {
-        progress = 0;
-        if (toast) {
-          toast.textContent =
-            "🍋 KONAMI ! Tu maîtrises déjà les raccourcis clavier — bon signe pour une dev !";
-          toast.classList.add("show");
-          setTimeout(() => {
-            toast.classList.remove("show");
-          }, 5000);
-        }
-      }
-    } else {
-      progress = 0;
-    }
-  });
-})();
-
 (function initStackPills() {
   const observer = new IntersectionObserver(
     (entries) => {
