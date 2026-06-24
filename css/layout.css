@@ -1,0 +1,80 @@
+section {
+  padding: 7rem 3.5rem;
+  position: relative;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--purple);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-label::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--purple);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.1;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 3rem;
+}
+
+.section-title .yellow {
+  color: var(--yellow);
+}
+
+.section-title .purple {
+  color: var(--purple);
+}
+
+/* --- FOOTER --- */
+footer {
+  padding: 2rem 3.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer p {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.footer-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.dot-y {
+  background: var(--yellow);
+}
+
+.dot-p {
+  background: var(--purple);
+}
+
+.dot-g {
+  background: var(--border);
+}

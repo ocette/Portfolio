@@ -1,0 +1,287 @@
+/* --- HERO --- */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.hero-inner {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 3.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  animation: blobFloat 11s ease-in-out infinite;
+}
+
+.blob-1 {
+  width: 600px;
+  height: 600px;
+  background: var(--purple);
+  opacity: 0.12;
+  top: -180px;
+  right: -160px;
+}
+
+.blob-2 {
+  width: 420px;
+  height: 420px;
+  background: var(--yellow);
+  opacity: 0.08;
+  bottom: -120px;
+  left: 5%;
+  animation-duration: 14s;
+  animation-direction: reverse;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 0 5rem;
+  gap: 0;
+}
+
+/* Eyebrow */
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  margin-bottom: 1.2rem;
+  opacity: 0;
+  animation: fadeUp 0.6s var(--ease) forwards 0.1s;
+}
+
+/* H1 Word-flip */
+h1.hero-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.25;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+}
+
+.hero-greeting,
+.hero-name {
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  line-height: 1.3;
+  display: inline;
+}
+
+.hero-greeting {
+  font-weight: 300;
+  color: var(--muted);
+}
+
+.hero-name {
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+.hero-typewriter-line {
+  font-family: var(--font-mono);
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+  min-height: 1.4em;
+  margin-top: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+#twRole {
+  color: var(--yellow);
+}
+
+/* Curseur clignotant */
+.hero-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.8em;
+  background: var(--yellow);
+  margin-left: 2px;
+  vertical-align: middle;
+  border-radius: 1px;
+  animation: blink 0.8s step-end infinite;
+}
+
+.hero-sub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 480px;
+  margin-top: 1.5rem;
+  line-height: 1.75;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.hero-sub strong {
+  color: var(--yellow);
+  font-weight: 500;
+}
+
+/* Liens sociaux */
+.hero-socials {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.social-link {
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    transform 0.2s;
+  flex-shrink: 0;
+}
+
+.social-link:hover {
+  border-color: var(--yellow);
+  color: var(--yellow);
+  transform: translateY(-2px);
+}
+
+.social-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+.hero-cta {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+/* Mascot */
+.mascot-wrapper {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mascot-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--yellow);
+  border-right-color: var(--purple);
+  animation: spinRing 6s linear infinite;
+  pointer-events: none;
+}
+
+.mascot-circle {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--purple) 6%, transparent);
+  border: 1.5px dashed var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.mascot-frame {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 26px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mascot-frame.active {
+  opacity: 1;
+}
+
+.mascot-frame-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Citron easter egg */
+.lemon-egg {
+  display: block;
+  font-size: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  user-select: none;
+}
+
+.lemon-egg:hover {
+  transform: rotate(-15deg) scale(1.3);
+}
+
+/* Scroll hint */
+.scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--muted);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  animation: bounce 2s infinite;
+}
+
+.scroll-hint::after {
+  content: "";
+  width: 1px;
+  height: 34px;
+  background: linear-gradient(to bottom, var(--muted), transparent);
+}

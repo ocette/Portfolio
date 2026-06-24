@@ -1,0 +1,21 @@
+.easter-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  background: var(--yellow);
+  color: var(--dark);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  padding: 1rem 1.8rem;
+  border-radius: 2rem;
+  z-index: 9999;
+  white-space: nowrap;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s var(--ease);
+  pointer-events: none;
+}
+
+.easter-toast.show {
+  transform: translateX(-50%) translateY(0);
+}

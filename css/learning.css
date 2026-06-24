@@ -1,0 +1,86 @@
+#learning {
+  background: var(--mid);
+}
+
+.learning-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.learning-card {
+  background: color-mix(in srgb, var(--purple) 5%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 1.2rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition:
+    transform 0.25s var(--ease),
+    border-color 0.25s;
+}
+
+.learning-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--purple) 35%, transparent);
+}
+
+.learning-status {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--yellow);
+  animation: pulse 2s infinite;
+}
+
+.status-dot.status-soon {
+  background: var(--purple);
+  animation: none;
+  opacity: 0.5;
+}
+
+.learning-icon {
+  font-size: 1.8rem;
+}
+
+.learning-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.learning-desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.learning-bar {
+  height: 2px;
+  background: color-mix(in srgb, var(--purple) 15%, transparent);
+  border-radius: 1px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.learning-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--yellow), var(--purple));
+  border-radius: 1px;
+}
