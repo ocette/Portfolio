@@ -7,7 +7,7 @@ export function initTypewriter() {
   const roles = [
     "graphiste.",
     "ux ui designer.",
-    "dev fullstack.",
+    "dev frontend.",
     "curieuse.",
     "gourmande.",
   ];
